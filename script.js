@@ -1,8 +1,5 @@
 const value = document.querySelector('.value');
 
-const ac = document.querySelector('.ac');
-const pm = document.querySelector('.pm');
-const percent = document.querySelector('.percent');
 
 const addition = document.querySelector('.addition');
 const subtraction = document.querySelector('.subtraction');
@@ -89,35 +86,6 @@ const handleOperatorClick = (operation) => {
   operatorInMemory = operation;
   setStrAsValue('0');
 };
-
-
-
-ac.addEventListener('click', () => {
-  setStrAsValue('0');
-  valueStrInMemory = null;
-  operatorInMemory = null;
-});
-pm.addEventListener('click', () => {
-  const currentValueNum = getValueAsNum();
-  const currentValueStr = getValueAsStr();
-
-  if (currentValueStr === '-0') {
-    setStrAsValue('0');
-    return;
-  }
-  if (currentValueNum >= 0) {
-    setStrAsValue('-' + currentValueStr);
-  } else {
-    setStrAsValue(currentValueStr.substring(1));
-  }
-});
-percent.addEventListener('click', () => {
-  const currentValueNum = getValueAsNum();
-  const newValueNum = currentValueNum / 100;
-  setStrAsValue(newValueNum.toString());
-  valueStrInMemory = null;
-  operatorInMemory = null;
-});
 
 addition.addEventListener('click', () => {
   handleOperatorClick('addition');
